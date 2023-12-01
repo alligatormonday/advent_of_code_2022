@@ -5,8 +5,10 @@
 defmodule Puzzle do
   totals =
     File.read("input.txt")
+    |> IO.inspect()
     |> elem(1)
     |> String.split("\n")
+    |> IO.inspect()
     |> Enum.chunk_by(fn x -> x == "" end)
     |> Enum.filter(fn x -> x != [""] end)
     |> Enum.reduce([], fn x, acc ->
